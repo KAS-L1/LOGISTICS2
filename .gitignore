@@ -1,0 +1,6 @@
+/vendor
+.codegpt
+.env
+.env.local
+.env.*.local
+.codegpt
