@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
     <script src="{{ asset('assets/js/toastr_jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
+    <!-- Add Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 
 </head>
 

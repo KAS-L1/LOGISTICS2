@@ -26,15 +26,8 @@
                     <button type="button" class="nav-link group" :class="{ 'active': activeDropdown === 'dashboard' }"
                         @click="activeDropdown === 'dashboard' ? activeDropdown = null : activeDropdown = 'dashboard'">
                         <div class="flex items-center">
-                            <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path opacity="0.5"
-                                    d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
-                                    fill="currentColor"></path>
-                                <path
-                                    d="M9 17.25C8.58579 17.25 8.25 17.5858 8.25 18C8.25 18.4142 8.58579 18.75 9 18.75H15C15.4142 18.75 15.75 18.4142 15.75 18C15.75 17.5858 15.4142 17.25 15 17.25H9Z"
-                                    fill="currentColor"></path>
-                            </svg>
+                            <i class="fa-solid fa-home shrink-0 group-hover:text-primary text-current opacity-50"></i>
+
 
                             <span
                                 class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">Dashboard</span>
@@ -74,15 +67,11 @@
                                 :class="{ 'active': activeDropdown === 'procurement' }"
                                 @click="activeDropdown === 'procurement' ? activeDropdown = null : activeDropdown = 'procurement'">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                        viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                            fill="currentColor"></path>
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6V6.31673C14.3804 6.60867 15.75 7.83361 15.75 9.5C15.75 9.91421 15.4142 10.25 15 10.25C14.5858 10.25 14.25 9.91421 14.25 9.5C14.25 8.82154 13.6859 8.10339 12.75 7.84748V11.3167C14.3804 11.6087 15.75 12.8336 15.75 14.5C15.75 16.1664 14.3804 17.3913 12.75 17.6833V18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18V17.6833C9.61957 17.3913 8.25 16.1664 8.25 14.5C8.25 14.0858 8.58579 13.75 9 13.75C9.41421 13.75 9.75 14.0858 9.75 14.5C9.75 15.1785 10.3141 15.8966 11.25 16.1525V12.6833C9.61957 12.3913 8.25 11.1664 8.25 9.5C8.25 7.83361 9.61957 6.60867 11.25 6.31673V6C11.25 5.58579 11.5858 5.25 12 5.25ZM11.25 7.84748C10.3141 8.10339 9.75 8.82154 9.75 9.5C9.75 10.1785 10.3141 10.8966 11.25 11.1525V7.84748ZM14.25 14.5C14.25 13.8215 13.6859 13.1034 12.75 12.8475V16.1525C13.6859 15.8966 14.25 15.1785 14.25 14.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+
+                                    <i
+                                        class="fa fa-cart-shopping shrink-0 group-hover:text-primary text-current opacity-50"></i>
+
+
                                     <span
                                         class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">Procurement</span>
                                 </div>
@@ -121,15 +110,9 @@
                                 :class="{ 'active': activeDropdown === 'audit' }"
                                 @click="activeDropdown === 'audit' ? activeDropdown = null : activeDropdown = 'audit'">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                        viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                            fill="currentColor"></path>
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6V6.31673C14.3804 6.60867 15.75 7.83361 15.75 9.5C15.75 9.91421 15.4142 10.25 15 10.25C14.5858 10.25 14.25 9.91421 14.25 9.5C14.25 8.82154 13.6859 8.10339 12.75 7.84748V11.3167C14.3804 11.6087 15.75 12.8336 15.75 14.5C15.75 16.1664 14.3804 17.3913 12.75 17.6833V18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18V17.6833C9.61957 17.3913 8.25 16.1664 8.25 14.5C8.25 14.0858 8.58579 13.75 9 13.75C9.41421 13.75 9.75 14.0858 9.75 14.5C9.75 15.1785 10.3141 15.8966 11.25 16.1525V12.6833C9.61957 12.3913 8.25 11.1664 8.25 9.5C8.25 7.83361 9.61957 6.60867 11.25 6.31673V6C11.25 5.58579 11.5858 5.25 12 5.25ZM11.25 7.84748C10.3141 8.10339 9.75 8.82154 9.75 9.5C9.75 10.1785 10.3141 10.8966 11.25 11.1525V7.84748ZM14.25 14.5C14.25 13.8215 13.6859 13.1034 12.75 12.8475V16.1525C13.6859 15.8966 14.25 15.1785 14.25 14.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i
+                                        class="fa fa-clipboard-list shrink-0 group-hover:text-primary text-current opacity-50"></i>
+
                                     <span
                                         class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">Audit
                                         Management</span>
@@ -164,15 +147,9 @@
                         <li class="nav-item">
                             <a href="apps-calendar.html" class="group">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                        viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.94028 2C7.35614 2 7.69326 2.32421 7.69326 2.72414V4.18487C8.36117 4.17241 9.10983 4.17241 9.95219 4.17241H13.9681C14.8104 4.17241 15.5591 4.17241 16.227 4.18487V2.72414C16.227 2.32421 16.5641 2 16.98 2C17.3958 2 17.733 2.32421 17.733 2.72414V4.24894C19.178 4.36022 20.1267 4.63333 20.8236 5.30359C21.5206 5.97385 21.8046 6.88616 21.9203 8.27586L22 9H2.92456H2V8.27586C2.11571 6.88616 2.3997 5.97385 3.09665 5.30359C3.79361 4.63333 4.74226 4.36022 6.1873 4.24894V2.72414C6.1873 2.32421 6.52442 2 6.94028 2Z"
-                                            fill="currentColor"></path>
-                                        <path opacity="0.5"
-                                            d="M21.9995 14.0001V12.0001C21.9995 11.161 21.9963 9.66527 21.9834 9H2.00917C1.99626 9.66527 1.99953 11.161 1.99953 12.0001V14.0001C1.99953 17.7713 1.99953 19.6569 3.1711 20.8285C4.34267 22.0001 6.22829 22.0001 9.99953 22.0001H13.9995C17.7708 22.0001 19.6564 22.0001 20.828 20.8285C21.9995 19.6569 21.9995 17.7713 21.9995 14.0001Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i
+                                        class="fa fa-file-contract shrink-0 group-hover:text-primary text-current opacity-50"></i>
+
                                     <span
                                         class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">Document
                                         Tracking</span>
@@ -184,15 +161,8 @@
                                 :class="{ 'active': activeDropdown === 'vendor' }"
                                 @click="activeDropdown === 'vendor' ? activeDropdown = null : activeDropdown = 'vendor'">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                        viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                            fill="currentColor"></path>
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6V6.31673C14.3804 6.60867 15.75 7.83361 15.75 9.5C15.75 9.91421 15.4142 10.25 15 10.25C14.5858 10.25 14.25 9.91421 14.25 9.5C14.25 8.82154 13.6859 8.10339 12.75 7.84748V11.3167C14.3804 11.6087 15.75 12.8336 15.75 14.5C15.75 16.1664 14.3804 17.3913 12.75 17.6833V18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18V17.6833C9.61957 17.3913 8.25 16.1664 8.25 14.5C8.25 14.0858 8.58579 13.75 9 13.75C9.41421 13.75 9.75 14.0858 9.75 14.5C9.75 15.1785 10.3141 15.8966 11.25 16.1525V12.6833C9.61957 12.3913 8.25 11.1664 8.25 9.5C8.25 7.83361 9.61957 6.60867 11.25 6.31673V6C11.25 5.58579 11.5858 5.25 12 5.25ZM11.25 7.84748C10.3141 8.10339 9.75 8.82154 9.75 9.5C9.75 10.1785 10.3141 10.8966 11.25 11.1525V7.84748ZM14.25 14.5C14.25 13.8215 13.6859 13.1034 12.75 12.8475V16.1525C13.6859 15.8966 14.25 15.1785 14.25 14.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i
+                                        class="fa fa-building shrink-0 group-hover:text-primary text-current opacity-50"></i>
                                     <span
                                         class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">Vendor
                                         Portal</span>
@@ -247,16 +217,8 @@
                         :class="{ 'active': activeDropdown === 'users' }"
                         @click="activeDropdown === 'users' ? activeDropdown = null : activeDropdown = 'users'">
                         <div class="flex items-center">
-                            <svg class="shrink-0 group-hover:!text-primary" width="20" height="20"
-                                viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle opacity="0.5" cx="15" cy="6" r="3" fill="currentColor">
-                                </circle>
-                                <ellipse opacity="0.5" cx="16" cy="17" rx="5" ry="3"
-                                    fill="currentColor"></ellipse>
-                                <circle cx="9.00098" cy="6" r="4" fill="currentColor"></circle>
-                                <ellipse cx="9.00098" cy="17.001" rx="7" ry="4"
-                                    fill="currentColor"></ellipse>
-                            </svg>
+                            <i class="fa fa-users shrink-0 group-hover:text-primary text-current opacity-50"></i>
+
                             <span
                                 class="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">User
                                 Management</span>
