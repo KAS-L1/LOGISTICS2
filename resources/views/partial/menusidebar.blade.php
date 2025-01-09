@@ -22,6 +22,7 @@
             </div>
             <ul class="perfect-scrollbar relative h-[calc(100vh-80px)] space-y-0.5 overflow-y-auto overflow-x-hidden p-4 py-0 font-semibold"
                 x-data="{ activeDropdown: 'dashboard' }">
+
                 <li class="menu nav-item">
                     <button type="button" class="nav-link group" :class="{ 'active': activeDropdown === 'dashboard' }"
                         @click="activeDropdown === 'dashboard' ? activeDropdown = null : activeDropdown = 'dashboard'">
@@ -105,6 +106,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li class="menu nav-item">
                             <button type="button" class="nav-link group"
                                 :class="{ 'active': activeDropdown === 'audit' }"
@@ -144,6 +146,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a href="apps-calendar.html" class="group">
                                 <div class="flex items-center">

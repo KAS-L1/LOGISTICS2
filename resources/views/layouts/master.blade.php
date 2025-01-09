@@ -22,6 +22,8 @@
     <script src="{{ asset('assets/js/toastr_jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
     <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/file-upload-with-preview.min.css') }}">
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.32.0"></script>
     <!-- Add Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -299,6 +301,51 @@
     <script defer="" src="{{ asset('assets/js/alpine-focus.min.js') }}"></script>
     <script defer="" src="{{ asset('assets/js/alpine.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/file-upload-with-preview.iife.js') }}"></script>
+
+    <script>
+        document.getElementById('profileImageInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+
+            // Validate file
+            if (!file) return;
+
+            // Check file type
+            if (!allowedTypes.includes(file.type)) {
+                alert('Please upload only JPG, JPEG or PNG files');
+                this.value = '';
+                return;
+            }
+
+            // Check file size
+            if (file.size > maxSize) {
+                alert('File size should be less than 2MB');
+                this.value = '';
+                return;
+            }
+
+            // Create preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Only check minimum dimensions
+                    if (img.width < 200 || img.height < 200) {
+                        alert('Image dimensions should be at least 200x200 pixels');
+                        document.getElementById('profileImageInput').value = '';
+                        return;
+                    }
+
+                    // Update preview if all checks pass
+                    document.getElementById('profilePreview').src = e.target.result;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
 
     <script>
         document.addEventListener('alpine:init', () => {

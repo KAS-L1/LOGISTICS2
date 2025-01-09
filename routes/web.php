@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\Procurement\PurchaseItemController;
 use App\Http\Controllers\Procurement\PurchaseRequisitionController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -33,7 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware(['auth', 'role:Admin|Super-Admin|Manager|Logistic'])->group(function () {
+Route::middleware(['auth', 'role:Admin|Super-Admin|Logistic'])->group(function () {
 
     Route::get('home', function () {
         return view('home');
@@ -42,6 +43,14 @@ Route::middleware(['auth', 'role:Admin|Super-Admin|Manager|Logistic'])->group(fu
     Route::get('data-analytics', function () {
         return view('dashboard.data-analytics');
     })->name('data-analytics');
+
+    Route::get('predictive-analytics', function () {
+        return view('dashboard.predictive-analytics');
+    })->name('predictive-analytics');
+});
+
+// Manager routes (only accessible to users with the 'manager' role)
+Route::middleware(['role:Manager'])->group(function () {
 
     Route::get('predictive-analytics', function () {
         return view('dashboard.predictive-analytics');
@@ -70,3 +79,6 @@ Route::get('/users', function () {
 Route::controller(UserManagementController::class)->group(function () {
     Route::get('users-profile', 'userProfilePage')->middleware('auth')->name('users-profile');
 });
+
+
+Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');

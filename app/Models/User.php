@@ -4,13 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Procurement\PurchaseRequisition;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Procurement\PurchaseRequisition;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -39,7 +40,7 @@ class User extends Authenticatable
      */
     public function before(User $user, string $ability): ?bool
     {
-        if ($user->hasRole('Super Admin')) {
+        if ($user->hasRole(['Super Admin', 'Admin'])) {
             return true;
         }
 
