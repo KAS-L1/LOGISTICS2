@@ -81,4 +81,4 @@ Route::controller(UserManagementController::class)->group(function () {
 });
 
 
-Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
+Route::post('/profile/update', [UserManagementController::class, 'update'])->name('profile.update');
