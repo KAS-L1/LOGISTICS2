@@ -10,12 +10,11 @@ class PurchaseRequisitionController extends Controller
 {
     public function index()
     {
-        $requisitions = PurchaseRequisition::with(['vendor', 'creator'])->paginate(10);
-
+        $requisitions = PurchaseRequisition::with(['vendor', 'creator'])
+            ->sortable()
+            ->paginate(10);
         // Pass the data to the Blade view
-        // return view('procurement.requisitions.index', compact('requisitions'));
-
-        return response()->json($requisitions);
+        return view('procurement.requisitions.index', compact('requisitions'));
     }
 
     public function show($id)
@@ -102,5 +101,13 @@ class PurchaseRequisitionController extends Controller
         $requisition = PurchaseRequisition::findOrFail($id);
 
         return view('procurement.requisitions.edit', compact('requisition'));
+    }
+
+    public function apiIndex()
+    {
+        $apiRequisitions = PurchaseRequisition::with(['vendor', 'creator'])->paginate(10);
+
+        // Return the data as JSON for API consumption
+        return response()->json($apiRequisitions);
     }
 }

@@ -6,10 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kyslik\ColumnSortable\Sortable;
+
 
 class PurchaseRequisition extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $primaryKey = 'id'; // Use the UUID column as the primary key
     public $incrementing = false; // Disable auto-incrementing for the primary key
@@ -60,6 +62,18 @@ class PurchaseRequisition extends Model
         'request_date',
         'status',
     ];
+    public $sortable = [
+        'requisition_id',
+        'vendor_id',
+        'total_quantity',
+        'total_cost',
+        'total_price',
+        'priority',
+        'status',
+        'created_at',
+    ];
+
+
 
     /**
      * Relationships
@@ -87,5 +101,10 @@ class PurchaseRequisition extends Model
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 }

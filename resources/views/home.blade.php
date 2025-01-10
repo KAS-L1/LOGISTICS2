@@ -25,37 +25,33 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fetch requisition data from the backend
-            fetch('/requisitions')
+            fetch('/requisitions-api')
                 .then(response => response.json())
                 .then(data => {
-                    // Assuming 'data' contains requisition data
-                    const requisitions = data.data; // Page of requisitions
+                    const apiRequisitions = data.data;
 
-                    // Extract data for the chart
-                    const categories = requisitions.map(requisition => requisition.requisition_id);
-                    const salesData = requisitions.map(requisition => requisition.total_cost);
+                    const categories = apiRequisitions.map(requisition => requisition.requisition_id);
+                    const salesData = apiRequisitions.map(requisition => requisition.total_cost);
 
-                    var options = {
+                    const options = {
                         chart: {
                             type: 'area',
-                            height: 350, // Ensure a proper height for the chart
+                            height: 350,
                         },
                         stroke: {
                             curve: 'smooth',
                         },
                         series: [{
                             name: 'Sales',
-                            data: salesData, // Using total_cost data
+                            data: salesData,
                         }],
                         xaxis: {
-                            categories: categories, // Using requisition IDs as categories
+                            categories: categories,
                         },
-                        colors: ['#2B9A10'], // Set success color (green)
+                        colors: ['#2B9A10'],
                     };
 
-                    // Render the chart with the fetched data
-                    var chart = new ApexCharts(document.querySelector("#chart"), options);
+                    const chart = new ApexCharts(document.querySelector("#chart"), options);
                     chart.render();
                 })
                 .catch(error => {

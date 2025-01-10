@@ -87,7 +87,7 @@
                             <ul x-cloak="" x-show="activeDropdown === 'procurement'" x-collapse=""
                                 class="sub-menu text-gray-500">
                                 <li>
-                                    <a href="#">Purchase Requisition</a>
+                                    <a href="{{ route('requisitions.index') }}">Purchase Requisition</a>
                                 </li>
                                 <li>
                                     <a href="#">Budget Approval</a>

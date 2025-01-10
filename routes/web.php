@@ -49,32 +49,9 @@ Route::middleware(['auth', 'role:Admin|Super-Admin|Logistic'])->group(function (
     })->name('predictive-analytics');
 });
 
-// Manager routes (only accessible to users with the 'manager' role)
-Route::middleware(['role:Manager'])->group(function () {
-
-    Route::get('predictive-analytics', function () {
-        return view('dashboard.predictive-analytics');
-    })->name('predictive-analytics');
-});
-
-
-
-
-Route::get('requisitions', [PurchaseRequisitionController::class, 'index'])->name('requisitions.index');
-Route::get('requisitions/{id}', [PurchaseRequisitionController::class, 'show'])->name('requisitions.show');
-Route::get('requisitions/{id}/edit', [PurchaseRequisitionController::class, 'edit'])->name('requisitions.edit');
-Route::delete('requisitions/{id}', [PurchaseRequisitionController::class, 'destroy'])->name('requisitions.destroy');
-Route::get('requisitions/create', [PurchaseRequisitionController::class, 'create'])->name('requisitions.create');
-Route::post('requisitions', [PurchaseRequisitionController::class, 'store'])->name('requisitions.store');
-
-
 Route::get('/users', function () {
     return view('users.index');
 });
-// Route::middleware(['permission:view reports'])->group(function () {
-//     Route::get('/reports', [ReportController::class, 'index']);
-// });
-
 
 Route::controller(UserManagementController::class)->group(function () {
     Route::get('users-profile', 'userProfilePage')->middleware('auth')->name('users-profile');
@@ -82,3 +59,14 @@ Route::controller(UserManagementController::class)->group(function () {
 
 
 Route::post('/profile/update', [UserManagementController::class, 'update'])->name('profile.update');
+
+
+// Purchase Requisition 
+
+Route::get('requisitions', [PurchaseRequisitionController::class, 'index'])->name('requisitions.index');
+Route::get('requisitions/{id}', [PurchaseRequisitionController::class, 'show'])->name('requisitions.show');
+Route::get('requisitions/{id}/edit', [PurchaseRequisitionController::class, 'edit'])->name('requisitions.edit');
+Route::delete('requisitions/{id}', [PurchaseRequisitionController::class, 'destroy'])->name('requisitions.destroy');
+Route::get('requisitions/create', [PurchaseRequisitionController::class, 'create'])->name('requisitions.create');
+Route::post('requisitions', [PurchaseRequisitionController::class, 'store'])->name('requisitions.store');
+Route::get('/requisitions-api', [PurchaseRequisitionController::class, 'apiIndex'])->name('requisitions.api');
