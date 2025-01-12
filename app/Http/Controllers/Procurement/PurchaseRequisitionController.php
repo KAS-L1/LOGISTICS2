@@ -10,20 +10,17 @@ class PurchaseRequisitionController extends Controller
 {
     public function index(Request $request)
     {
-        $requisitions = PurchaseRequisition::with(['vendor', 'creator'])
-            ->paginate(10);
+        $requisitions = PurchaseRequisition::with(['vendor', 'creator'])->paginate(10);
 
-        if ($request->ajax()) {
-            // Return JSON response for AJAX requests
+        if ($request->wantsJson()) {
             return response()->json([
                 'requisitions' => $requisitions,
-                'html' => view('procurement.requisitions.index', compact('requisitions'))->render(),
             ]);
         }
 
-        // Return the main view for non-AJAX requests
         return view('procurement.requisitions.index', compact('requisitions'));
     }
+
 
 
     public function show($id)
