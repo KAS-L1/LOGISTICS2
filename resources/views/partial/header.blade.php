@@ -382,7 +382,7 @@
                 <div class="dropdown flex-shrink-0" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;" class="group relative" @click="toggle()">
                         <span><img class="h-9 w-9 rounded-full object-cover saturate-50 group-hover:saturate-100"
-                                src="{{ auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
+                                src="{{ auth()->check() && auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
                                 alt="image"></span>
                     </a>
                     <ul x-cloak="" x-show="open" x-transition="" x-transition.duration.300ms=""

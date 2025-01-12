@@ -9,7 +9,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="css2?family=Nunito:wght@40
+    0;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/perfect-scrollbar.min.css') }}">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/style.css') }}">
     <link defer="" rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/animate.css') }}">
@@ -28,8 +29,11 @@
     <!-- Add Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
-
+    <link href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
 </head>
 
 <body x-data="main" class="relative overflow-x-hidden font-nunito text-sm font-normal antialiased"
@@ -989,6 +993,9 @@
         });
     </script>
 
+    <script>
+        let table = new DataTable('#dataTable');
+    </script>
 </body>
 
 </html>

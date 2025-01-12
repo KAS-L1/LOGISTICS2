@@ -8,14 +8,23 @@ use App\Models\Procurement\PurchaseRequisition;
 
 class PurchaseRequisitionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $requisitions = PurchaseRequisition::with(['vendor', 'creator'])
-            ->sortable()
             ->paginate(10);
-        // Pass the data to the Blade view
+
+        if ($request->ajax()) {
+            // Return JSON response for AJAX requests
+            return response()->json([
+                'requisitions' => $requisitions,
+                'html' => view('procurement.requisitions.index', compact('requisitions'))->render(),
+            ]);
+        }
+
+        // Return the main view for non-AJAX requests
         return view('procurement.requisitions.index', compact('requisitions'));
     }
+
 
     public function show($id)
     {
@@ -59,6 +68,9 @@ class PurchaseRequisitionController extends Controller
         $requisition = PurchaseRequisition::create(array_merge($validated, [
             'created_by' => auth()->id(),
         ]));
+
+
+
 
         return response()->json($requisition, 201);
     }

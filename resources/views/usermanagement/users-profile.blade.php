@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-5">
                             <div class="flex flex-col items-center justify-center">
-                                <img src="{{ auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
+                                <img src="{{ auth()->check() && auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
                                     alt="image" class="mb-5 h-24 w-24 rounded-full object-cover">
                                 <p class="text-xl font-semibold text-primary">{{ auth()->user()->first_name }}
                                     {{ auth()->user()->last_name }}</p>
@@ -141,7 +141,7 @@
                                 <!-- File Upload Container -->
                                 <div class="relative mx-auto">
                                     <img id="profilePreview"
-                                        src="{{ auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
+                                        src="{{ auth()->check() && auth()->user()->profile_picture ? Storage::url(auth()->user()->profile_picture) : asset('assets/images/default-profile.png') }}"
                                         alt="Profile Picture"
                                         class="h-32 w-32 rounded-full object-cover mb-3 border-2 border-gray-300 dark:border-gray-700">
                                     <input id="profileImageInput" type="file" name="profile_picture" accept="image/*"
